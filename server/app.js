@@ -1,3 +1,12 @@
+/*
+============================================
+; Title: app.js
+; Author: Devan Wong
+; Date: 18 March 2021
+; Description: app js page
+;===========================================
+*/
+
 /**
  * Require statements
  */
@@ -8,6 +17,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
 
+const EmployeeAPI = require('./routes/employee-route');
 /**
  * App configurations
  */
@@ -21,10 +31,10 @@ app.use('/', express.static(path.join(__dirname, '../dist/nodebucket')));
 /**
  * Variables
  */
-const port = 3000; // server port
+
 
 // TODO: This line will need to be replaced with your actual database connection string
-const conn = 'mongodb+srv://superadmin:s3cret@cluster0-lujih.mongodb.net/nodebucket?retryWrites=true&w=majority';
+const conn = 'mongodb+srv://nodebucket_user:admin@buwebdev-cluster-1.w20ui.mongodb.net/nodebucket?retryWrites=true&w=majority';
 
 /**
  * Database connection
@@ -32,7 +42,8 @@ const conn = 'mongodb+srv://superadmin:s3cret@cluster0-lujih.mongodb.net/nodebuc
 mongoose.connect(conn, {
   promiseLibrary: require('bluebird'),
   useUnifiedTopology: true,
-  useNewUrlParser: true
+  useNewUrlParser: true,
+  useCreateIndex: true
 }).then(() => {
   console.debug(`Connection to the database instance was successful`);
 }).catch(err => {
@@ -42,10 +53,11 @@ mongoose.connect(conn, {
 /**
  * API(s) go here...
  */
-
+app.use('/api/employees', EmployeeAPI);
 /**
  * Create and start server
  */
+const port = process.env.PORT || 3000; // server port
 http.createServer(app).listen(port, function() {
   console.log(`Application started and listening on port: ${port}`)
 }); // end http create server function
