@@ -1,0 +1,33 @@
+<!-- this is the login component html page. -->
+<div fxLayout="column">
+    <mat-card fxFlex class="mat-elevation-z8 login-container">
+        <mat-card-title class="login-title mat-headline">Employee Login</mat-card-title>
+        <mat-card-subtitle class="login-subtitle mat-headline">You must enter a valid numerical employeeID to proceed</mat-card-subtitle>
+        <mat-card-content>
+            <mat-card class="mat-elevation-z0" fxLayout="column" fxLayoutGap="10px">
+                <!-- this is the start of the form and will be reset once submit clicks. -->
+                <form [formGroup]="loginForm" (ngSubmit)="login(); loginForm.reset()">
+                    <mat-card-content>
+                        <mat-form-field fxFlex>
+                            <input matInput
+                                [formControl]="loginForm.controls['empId']"
+                                placeholder="EmployeeID" />
+                                <!-- validation that requires an input field that is connected to the database. -->
+                            <mat-error *ngIf="loginForm.controls['empId'].hasError('required') && loginForm.controls['empId'].touched">EmployeeID is a required field.</mat-error>
+                                <!-- validation that requires only numbers  -->
+                            <mat-error *ngIf="loginForm.controls['empId'].hasError('pattern') && loginForm.controls['empId'].touched">EmployeeID must be a numerical value.</mat-error>
+                        </mat-form-field>
+                    </mat-card-content>
+                    <mat-card-actions align="end">
+                        <!-- this is the submit button to go to the homepage. if successfull. -->
+                        <button type="submit"
+                                fxFlex
+                                mat-raised-button
+                                [disabled]="!loginForm.valid"
+                                color="primary">Submit</button>
+                    </mat-card-actions>
+                </form>
+            </mat-card>
+        </mat-card-content>
+    </mat-card>
+</div>
