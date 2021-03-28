@@ -17,6 +17,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
 
+// Imported the API
 const EmployeeAPI = require('./routes/employee-route');
 /**
  * App configurations
@@ -52,6 +53,7 @@ mongoose.connect(conn, {
 
 /**
  * API(s) go here...
+ * prefixed API 
  */
 app.use('/api/employees', EmployeeAPI);
 /**
