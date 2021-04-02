@@ -1,34 +1,34 @@
 <!-- this is the base layout html page. -->
-<div fxLayout="column">
+<div fxLayout="column" class="container">
 
     <!-- navigation -->
     <nav fxFlex>
-      <mat-toolbar>
+      <mat-toolbar fxLayout="row">
         <!-- navbar container -->
         <div class="navbar-container">
           <!-- logo -->
           <button class="logo" routerLink="/" mat-button>nodebucket</button>
           <button class="navbar-link" routerLink="/" mat-button>Home</button>
-          <button class="navbar-link" mat-button>About</button>
-          <button class="navbar-link" mat-button (click)="signOut()">Sign Out</button>
+          <button class="navbar-link" routerLink="/about" mat-button>About</button>
+          <button class="navbar-link" mat-button (click)="signOut()" align="end">Sign Out</button>
         </div>
   
       </mat-toolbar>
     </nav>
   
     <!-- main content -->
-    <div fxFlex>
+    <div fxFlex="1">
       <main class="main-content" fxFlex="100%;">
         <router-outlet></router-outlet>
       </main>
     </div>
   
     <!-- footer -->
-    <div fxFlex>
-      <footer class="footer">
+    <div fxFlex class="footer">
+      <footer fxLayout="row">
         <mat-toolbar class="footer-content">
           <p>
-            &copy; {{year | date: 'yyyy'}} - nodebucket - <a href="https://www.bellevue.edu/" class="bu-link" target="_blank">Bellevue University</a>
+            &copy; {{year | date: 'yyyy'}} - nodebucket - <a href="https://github.com/devanwong" class="bu-link" target="_blank">Devan Wong</a> | <a href="https://github.com/devanwong/nodebucket">NodeBucket's Repository</a>
           </p>
         </mat-toolbar>
       </footer>

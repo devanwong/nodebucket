@@ -1,0 +1,16 @@
+/* This is the about.css  */
+
+.main-container {
+    width:90%;
+    padding:0 30px;
+    margin: 0 auto;
+    margin-top:30px;
+}
+
+.blue {
+    color: #283D7F;
+}
+/* Media query for responsive design */
+@media (max-width: 800px) {
+
+}

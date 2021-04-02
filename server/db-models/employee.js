@@ -13,7 +13,9 @@ const Item = require('./item');
 // This is a schema which allows us to define fields, templates for documents in collection
 let employeeSchema = mongoose.Schema({
     // has to be a unique ID
-    empId: { type: String, unique: true },
+    empId: { type: String, unique: true, dropDups: true },
+    firstName: {type: String},
+    lastName: {type: String}, 
     // an array of item from importing item.js
     todo: [ Item ],
     done: [ Item ]

@@ -1,0 +1,18 @@
+/* This is the CSS for the not found.html page  */
+* {
+    margin: 0 auto;
+}
+
+.main-container {
+    width:50%;
+    margin: 0 auto;
+}
+.mat-card-content {
+    justify-content: center;
+    margin: 0 auto;
+    align-items: center;
+}
+a {
+    text-align: center;
+    font-size: 8px;
+}

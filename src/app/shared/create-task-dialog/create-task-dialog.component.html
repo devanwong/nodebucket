@@ -1,0 +1,15 @@
+<!-- This is the create-task-dialog -->
+<h2 mat-dialog-title>Add new task</h2>
+<!-- Mapped to taskForm -->
+<mat-dialog-content [formGroup]="taskForm">
+    <!-- Form field with an input invoking the createTask function -->
+    <mat-form-field>
+        <input type="text" matInput placeholder="Enter a task name" formControlName="text" (keydown.enter)="createTask()" />
+    </mat-form-field>
+</mat-dialog-content>
+<!-- Buttons -->
+<mat-dialog-actions align="end">
+    <button mat-button (click)="cancel()">Cancel</button>
+    <!-- Form needs to be valid. -->
+    <button mat-button (click)="createTask()" [disabled]="!taskForm.valid">Submit</button>
+</mat-dialog-actions> 
