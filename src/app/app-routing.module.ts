@@ -40,13 +40,17 @@ const routes: Routes = [
       {
         path:'login',
         component: LoginComponent
+      }, 
+      {
+        path:'not-found',
+        component: NotFoundComponent
       }
     ]
   },
   {
     // This is the redirect page to the session parent component.
     path: '**',
-    component: NotFoundComponent
+    redirectTo: 'session/not-found'
   }
 ];
 
