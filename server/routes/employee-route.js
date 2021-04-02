@@ -9,7 +9,7 @@
 const express = require('express');
 const Employee = require("../db-models/employee");
 const BaseResponse = require('../service/base-response');
-const itemSchema = require('../db-models/item');
+// const Item = require('../db-models/item');
 const router = express.Router();
 // const { $ } = require('protractor');
 /** 
@@ -272,7 +272,7 @@ router.delete('/:empId/tasks/:taskId', async(req, res) => {
                         {
                             console.log(updatedDoneItemEmployee);
                             const deleteDoneItemSuccess =  new BaseResponse('200', 'Query successful', updatedDoneItemEmployee);
-                            res.status(200).send(updatedDoneItemEmployee.toObject());
+                            res.status(200).send(deleteDoneItemSuccess.toObject());
                         }
                     })
                 } 

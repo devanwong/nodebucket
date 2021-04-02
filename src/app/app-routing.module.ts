@@ -14,7 +14,8 @@ import { AuthGuard } from './shared/auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
-
+import { AboutComponent } from './pages/about/about.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 // this is the routes to connect to the different pages. 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
         path: '',
         component: HomeComponent,
         canActivate: [AuthGuard]
+      },
+      {
+        path: 'about',
+        component: AboutComponent
       }
     ]
   },
@@ -37,6 +42,11 @@ const routes: Routes = [
         component: LoginComponent
       }
     ]
+  },
+  {
+    // This is the redirect page to the session parent component.
+    path: '**',
+    component: NotFoundComponent
   }
 ];
 
